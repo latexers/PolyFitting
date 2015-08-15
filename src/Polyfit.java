@@ -1,3 +1,6 @@
+import java.awt.geom.Line2D;
+import java.util.LinkedList;
+
 /**
  * Title: Java Matrix Laboratory
  * <p>
@@ -96,6 +99,27 @@ public class Polyfit {
 					* Math.pow(x, polynomialCoefficients.length - 1 - i);
 		}
 		return value;
+	}
+
+	public double[] calValues(double[] x) {
+		double[] y = new double[x.length];
+		for(int i = 0; i < x.length; i++) {
+			y[i] = calValue(x[i]);
+		}
+
+		return y;
+	}
+	public double[] interpolation(double maxX, double minX,double step) {
+		LinkedList<Double> xList = new LinkedList<>();
+		for (double x = minX; x < maxX; x = x + step) {
+			xList.add(x);
+		}
+
+		double[] reslut = new double[xList.size()];
+		for(int i = 0; i < reslut.length; i++) {
+			reslut[i] = xList.get(i);
+		}
+		return  reslut;
 	}
 
 }// ---------------------------- End Class Definition
